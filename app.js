@@ -16,7 +16,7 @@ var maurice  = new Cat("Maurice");
 var sharonda = new Cat("Sharonda");
 
 // Variable to store a reference to the current cat's object.
-// Set 
+// Set when loadDisplayCat function is called.
 var currentCat = null;
 
 // Cat constructor
@@ -33,25 +33,18 @@ function loadCatList() {
   });
 }
 
-function addCatClick(event) {
-  var currentCat = event.target.dataset.name.toLowerCase(),
-      // Use currentCat string captured from event to
-      // reference the corresponding cat object
-      catObject = window[currentCat];
-
-  catObject.clickCount++;
-  displayClicks.textContent = catObject.clickCount;
-  console.log(boris);
+function addCatClick() {
+  currentCat.clickCount++;
+  displayClicks.textContent = currentCat.clickCount;
 }
 
 
 function loadDisplayCat(event) {
-  var catName = event.target.innerText;
+  currentCat = window[event.target.innerText.toLowerCase()];
 
-  displayName.textContent = catName;
-  displayPic.dataset.name = catName;
-  displayPic.src = "img/" + catName + ".jpg";
-  displayClicks.textContent = window[catName.toLowerCase()].clickCount;
+  displayName.textContent = currentCat.name;
+  displayPic.src = "img/" + currentCat.name + ".jpg";
+  displayClicks.textContent = currentCat.clickCount;
 }
 
 // Event Listeners
