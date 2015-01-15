@@ -6,23 +6,19 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Cat Clicker</h1>
-  <section id="cat-list">
-    <h1>Cat Names</h1>
-  </section>
-  <section id="cat-kennel">
-    <div class="cat-container">
-      <h1 id="cat1-name"></h1>
-      <div class="cat-img-box" id="cat-pic1"></div>
-      <p>Number of Times Clicked: <span id="cat1-count-display">0</span></p>
-    </div>
-    <div class="cat-container">
-      <h1 id="cat2-name"></h1>
-      <div class="cat-img-box" id="cat-pic2"></div>
-      <p>Number of Times Clicked: <span id="cat2-count-display">0</span></p>
-    </div>
+  <h1>Cat Clicker Premium</h1>
+
+  <section>
+    <h1>List-O-Cats</h1>
+    <ul id="cat-list">
+      <!-- populated with catLoader function in app.js -->
+    </ul>
   </section>
 
+  <section id="cat-display">
+    <h1 id="display-name"></h1>
+    <img id="display-pic" data-name="boris" src="" alt="">
+  </section>
 
   <script src="app.js"></script>
 </body>

@@ -1,28 +1,49 @@
-var catPic1 = document.getElementById("cat-pic1"),
-    catPic2 = document.getElementById("cat-pic2"),
+//// DOM element variables ////
+var catDisplay    = document.getElementById("cat-display"),
+    displayName   = document.getElementById("display-name"),
+    displayPic    = document.getElementById("display-pic"),
+    displayClicks = document.getElementById("display-clicks"),
 
-    catKennel = document.getElementById("cat-kennel"),
+    catList = document.getElementById("cat-list");
 
-    cat1Name = document.getElementById("cat1-name"),
-    cat2Name = document.getElementById("cat2-name"),
+// Array for storing collection of cats;
+var catSet = [];
+// Initial collection of cats
+var boris    = new Cat("Boris");
+var aurora   = new Cat("Aurora");
+var paco     = new Cat("Paco");
+var maurice  = new Cat("Maurice");
+var sharonda = new Cat("Sharonda");
 
-    cat1CountDisplay = document.getElementById("cat1-count-display"),
-    cat2CountDisplay = document.getElementById("cat2-count-display"),
-    cat1ClickCount = 0;
-    cat2ClickCount = 0;
+// Cat constructor
+function Cat(name) {
+  this.name = name;
+  this.clickCount = 0;
+  // Add new cat to 'catSet' array
+  catSet.push(this);
+}
 
-cat1Name.textContent = "Boris";
-cat2Name.textContent = "Aurora";
+function loadCatList() {
+  catSet.forEach(function (cat) {
+    catList.innerHTML += "<li>" + cat.name + "</li>";
+  });
+}
 
-catKennel.addEventListener("click", function(e) {
-  switch (e.target.id) {
-  case "cat-pic1":
-    cat1ClickCount++;
-    cat1CountDisplay.textContent = cat1ClickCount;
-    break;
-  case "cat-pic2":
-    cat2ClickCount++;
-    cat2CountDisplay.textContent = cat2ClickCount;
-    break;
-  }
-});
+function loadDisplayCat() {
+
+}
+
+function addCatClick(e) {
+  var currentCat = event.target.dataset.name;
+
+  window[currentCat].clickCount++;
+  console.log(boris);
+}
+
+// Event Listeners
+catDisplay.addEventListener("click", addCatClick);
+catList.addEventListener("click", loadDisplayCat);
+
+
+// Load initial collection of cats
+loadCatList();
