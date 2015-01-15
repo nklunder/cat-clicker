@@ -15,6 +15,10 @@ var paco     = new Cat("Paco");
 var maurice  = new Cat("Maurice");
 var sharonda = new Cat("Sharonda");
 
+// Variable to store a reference to the current cat's object.
+// Set 
+var currentCat = null;
+
 // Cat constructor
 function Cat(name) {
   this.name = name;
@@ -29,15 +33,25 @@ function loadCatList() {
   });
 }
 
-function loadDisplayCat() {
+function addCatClick(event) {
+  var currentCat = event.target.dataset.name.toLowerCase(),
+      // Use currentCat string captured from event to
+      // reference the corresponding cat object
+      catObject = window[currentCat];
 
+  catObject.clickCount++;
+  displayClicks.textContent = catObject.clickCount;
+  console.log(boris);
 }
 
-function addCatClick(e) {
-  var currentCat = event.target.dataset.name;
 
-  window[currentCat].clickCount++;
-  console.log(boris);
+function loadDisplayCat(event) {
+  var catName = event.target.innerText;
+
+  displayName.textContent = catName;
+  displayPic.dataset.name = catName;
+  displayPic.src = "img/" + catName + ".jpg";
+  displayClicks.textContent = window[catName.toLowerCase()].clickCount;
 }
 
 // Event Listeners
