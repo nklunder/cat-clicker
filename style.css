@@ -1,0 +1,48 @@
+html, body {
+  text-align: center;
+  font-family: sans-serif;
+  color: #242424;
+  background: #F5FAF2;
+  margin: 0 auto;
+  height: 100%;
+}
+
+h1 {
+  margin: 0 auto;
+  padding: 1.6rem 0 1rem;
+}
+
+img {
+  max-width: 50%;
+}
+
+.cat-img-box {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-width: 48%;
+  margin-right: 2%;
+  padding-top: 66%;
+}
+#cat-pic1 { background: url(img/cat1.jpg); }
+#cat-pic2 { background: url(img/cat2.jpg); }
+
+#cat-list {
+  float: left;
+  width: 18rem;
+  height: 100%;
+  background: lightgrey;
+}
+
+#cat-kennel {
+  padding-left: 18.5rem;
+}
+
+.cat-container {
+  min-width: 45%;
+  max-width: 100%;
+  float: left;
+  margin: 0 auto;
+  display: inline-block;
+}
